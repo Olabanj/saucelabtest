@@ -1,6 +1,10 @@
 /// <reference types="Cypress" />
-import LoginPage from '../POM/LoginPage'
+import LoginPage from "../POM/LoginPage"
+
 const loginPage = new LoginPage();
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+  });
 
     describe("login test",function(){
         before(function() {

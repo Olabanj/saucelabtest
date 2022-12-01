@@ -1,7 +1,8 @@
 /// <reference types="Cypress" />
 import LoginPage from "../POM/LoginPage"
 
-const loginPage = new LoginPage();
+
+
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
   });
@@ -13,12 +14,12 @@ Cypress.on('uncaught:exception', (err, runnable) => {
             })
         })
         it("login functionalty",function(){
-       
-      
-        cy.visit('/')
-        loginPage.typeUser().type(this.data.Username1)
-        loginPage.typePass().type(this.data.Password)
-        loginPage.loginSubmit().click()
+            
+            const login = new LoginPage();
+       cy.visit('/')
+        login.typeUser().type(this.data.Username1)
+        login.typePass().type(this.data.Password)
+        login.loginSubmit().click()
     })
 
 
